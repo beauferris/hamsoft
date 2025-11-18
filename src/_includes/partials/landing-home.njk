@@ -11,11 +11,6 @@
           {% if button_title %}
             <a href={{ button_link }} class="govuk-button govuk-button--start landing__button">{{ button_title }}</a>
           {% endif %}
-          {% if site.phone %}
-            <a href="tel:{{ site.phone }}" class="govuk-button govuk-button--start landing__button landing__button--outline">
-              Call {{ site.phone | formatPhone or site.phone }}
-            </a>
-          {% endif %}
         </div>
       </div>
       <div class="govuk-grid-column-one-half landing__media">

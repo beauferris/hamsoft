@@ -7,17 +7,9 @@
         <h2 class="govuk-heading-xl landing__title">{{ title | safe }}</h2>
         <h2 class="govuk-body-lead landing__description">{{ description }}</h2>
 
-        {% set display_call_button = show_call_button is not defined or show_call_button %}
-        {% if button_title or (display_call_button and site.phone) %}
+        {% if button_title %}
           <div class="landing__actions">
-            {% if button_title %}
-              <a href={{ button_link }} class="govuk-button govuk-button--start landing__button">{{ button_title }}</a>
-            {% endif %}
-            {% if display_call_button and site.phone %}
-              <a href="tel:{{ site.phone }}" class="govuk-button govuk-button--start landing__button landing__button--outline">
-                Call {{ site.phone | formatPhone or site.phone }}
-              </a>
-            {% endif %}
+            <a href={{ button_link }} class="govuk-button govuk-button--start landing__button">{{ button_title }}</a>
           </div>
         {% endif %}
       </div>
