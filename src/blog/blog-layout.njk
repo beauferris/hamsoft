@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+
+    {% set metaDescription = seo.description or description or site.description %}
+    {% set siteName = site.name %}
+    {% set robots = robots or "index,follow" %}
+
+    <title>{{ siteName ~ " | " ~ (metaTitle or title) }}</title>
+    <meta name="description" content="{{ metaDescription}}">
+    <meta name="robots" content="{{ robots }}">
+
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="{{ seo.type or 'website' }}">
+    {% set ogImage = seo.image or image_url %}
+    {% if ogImage %}
+      {% set absoluteOgImage = ogImage %}
+      {% if not ogImage.startsWith("http") %}
+        {% set absoluteOgImage = site.url + ogImage %}
+      {% endif %}
+      <meta property="og:image" content="{{ absoluteOgImage }}">
+      <meta property="og:image:alt" content="{{ title | striptags }}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="{{ absoluteOgImage }}">
+    {% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <script src="/scripts/main.js"></script>
+    <link rel="preload" href="/assets/images/logo.png" as="image" fetchpriority="high">
+  </head>
+
+  <body class="govuk-template__body">
+
+    {% include "partials/header.njk" %}
+
+    {% if landing_layout %}
+      {% include "partials/landing-" + landing_layout + ".njk" %}
+    {% else %}
+      {% include "partials/landing-default.njk" %}
+    {% endif %}
+
+    <main class="govuk-main-wrapper"  id="main-content">
+      <div class="govuk-width-container">
+      {{ content | safe }}
+      </div>
+    </main>
+    
+    {% include "partials/contact.njk" %}
+
+    
+  </body>
+  {% include "partials/footer.njk" %}
+</html>
+

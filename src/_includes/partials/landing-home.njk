@@ -1,0 +1,28 @@
+<div class="landing landing--dark">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row landing__grid">
+      <div class="govuk-grid-column-one-half landing__content">
+        {% include "partials/breadcrumbs.njk" %}
+
+        <h2 class="govuk-heading-xl landing__title">{{ title | safe }}</h2>
+        <h2 class="govuk-body-lead landing__description">{{ description }}</h2>
+
+        <div class="landing__actions">
+          {% if button_title %}
+            <a href={{ button_link }} class="govuk-button govuk-button--start landing__button">{{ button_title }}</a>
+          {% endif %}
+          {% if site.phone %}
+            <a href="tel:{{ site.phone }}" class="govuk-button govuk-button--start landing__button landing__button--outline">
+              Call {{ site.phone | formatPhone or site.phone }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half landing__media">
+        {% if image_url %}
+          <img src={{ image_url }} alt={{ description }} class="landing__image__home"/>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

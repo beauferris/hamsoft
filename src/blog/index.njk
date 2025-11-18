@@ -1,0 +1,35 @@
+---
+layout: blog-layout.njk
+title: Blog
+description: Insights and updates from AoLaw.
+permalink: "/blog/"
+---
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if collections.blog | length %}
+        <ul class="govuk-list govuk-list--spaced">
+          {% for post in collections.blog | reverse %}
+            <li>
+              <h3 class="govuk-heading-m">
+                <a class="govuk-link govuk-link--no-visited-state" href="{{ post.url }}">
+                  {{ post.data.title }}
+                </a>
+              </h3>
+              {% if post.data.description %}
+                <p class="govuk-body">{{ post.data.description }}</p>
+              {% endif %}
+              <p class="govuk-body-s govuk-!-font-size-16 govuk-!-colour-dark-grey">
+                {{ post.date | readableDate }}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="govuk-body">No articles yet. New posts will appear here once published.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+

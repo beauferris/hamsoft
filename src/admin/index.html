@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AoLaw CMS</title>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/assets/images/aolaw.png" />
+  </head>
+  <body>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
+    <script>
+      (function () {
+        if (!window.CMS) return;
+
+        const tablePattern =
+          /^(\|.+\|\s*\n\|[-:|\s]+\|\s*\n(?:\|.*\|\s*\n?)*)$/m;
+
+        function tableMarkdownToHTML(markdown) {
+          const lines = (markdown || "").trim().split(/\r?\n/).filter(Boolean);
+          if (lines.length < 2) {
+            return `<pre>${markdown || ""}</pre>`;
+          }
+
+          const headerCells = lines[0]
+            .split("|")
+            .slice(1, -1)
+            .map((cell) => cell.trim());
+
+          const bodyLines = lines.slice(2).map((line) =>
+            line
+              .split("|")
+              .slice(1, -1)
+              .map((cell) => cell.trim())
+          );
+
+          const thead = `<thead class="govuk-table__head"><tr class="govuk-table__row">${headerCells
+            .map(
+              (cell) =>
+                `<th scope="col" class="govuk-table__header">${cell}</th>`
+            )
+            .join("")}</tr></thead>`;
+
+          const tbodyRows = bodyLines
+            .map((row) => {
+              if (!row.length) return "";
+              return `<tr class="govuk-table__row">${row
+                .map((cell) => `<td class="govuk-table__cell">${cell}</td>`)
+                .join("")}</tr>`;
+            })
+            .join("");
+
+          return `<table class="govuk-table">${thead}<tbody class="govuk-table__body">${tbodyRows}</tbody></table>`;
+        }
+
+        CMS.registerEditorComponent({
+          id: "table",
+          label: "Table",
+          fields: [
+            {
+              name: "table",
+              label: "Table Markdown",
+              widget: "text",
+              default:
+                "| Column 1 | Column 2 |\n| --- | --- |\n| Value 1 | Value 2 |",
+            },
+          ],
+          pattern: tablePattern,
+          fromBlock(match) {
+            return { table: (match && match[1]) || "" };
+          },
+          toBlock(obj) {
+            return (obj && obj.table ? obj.table : "").trim() + "\n";
+          },
+          toPreview(obj) {
+            return tableMarkdownToHTML(obj && obj.table ? obj.table : "");
+          },
+        });
+      })();
+    </script>
+  </body>
+</html>
+

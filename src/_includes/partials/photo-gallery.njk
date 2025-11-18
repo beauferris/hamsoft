@@ -1,0 +1,20 @@
+{% set galleryId = galleryId or ("gallery-" + (images | length) + "-" + (title or "default")) %}
+<div class="photo-gallery" data-gallery-id="{{ galleryId }}" tabindex="0">
+  <button class="photo-gallery__control photo-gallery__control--prev" aria-label="Previous image" type="button">
+    <span aria-hidden="true">‹</span>
+  </button>
+  <div class="photo-gallery__viewport">
+    {% for image in images %}
+      <figure class="photo-gallery__slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}" aria-hidden="{% if loop.first %}false{% else %}true{% endif %}">
+        <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy">
+        {% if image.caption %}
+          <figcaption class="photo-gallery__caption govuk-body-lead"><p class="govuk-body-lead">{{ image.caption }}</p></figcaption>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+  <button class="photo-gallery__control photo-gallery__control--next" aria-label="Next image" type="button">
+    <span aria-hidden="true">›</span>
+  </button>
+</div>
+

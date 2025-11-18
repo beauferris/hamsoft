@@ -1,0 +1,103 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - label: "Globals"
+    name: "globals"
+    files:
+      - label: "Site Settings"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site Name", name: name, widget: string }
+          - { label: "Description", name: description, widget: text }
+          - { label: "Website URL", name: url, widget: string }
+          - { label: "Language", name: language, widget: string, default: "en" }
+          - { label: "Phone Number", name: phone, widget: string }
+
+  - label: "Pages"
+    name: "pages"
+    editor:
+      preview: false
+    files:
+      - label: "Home"
+        name: "home"
+        file: "src/index.njk"
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Meta Title", name: metaTitle, widget: string }
+          - { label: "Description", name: description, widget: text }
+          - { label: "Hero Button Text", name: button_title, widget: string }
+          - { label: "Hero Button Link", name: button_link, widget: string }
+          - { label: "Hero Image", name: image_url, widget: image, allow_empty: true }
+      - label: "Services"
+        name: "services"
+        file: "src/services.njk"
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text }
+          - { label: "Permalink", name: permalink, widget: string }
+          - { label: "Hero Button Text", name: button_title, widget: string, required: false }
+          - { label: "Hero Button Link", name: button_link, widget: string, required: false }
+          - { label: "Hero Image", name: image_url, widget: image, allow_empty: true }
+      - label: "Contact"
+        name: "contact"
+        file: "src/contact.njk"
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Permalink", name: permalink, widget: string }
+          - { label: "Description", name: description, widget: text }
+          - { label: "Hero Button Text", name: button_title, widget: string, required: false }
+          - { label: "Hero Button Link", name: button_link, widget: string, required: false }
+          - { label: "Hero Image", name: image_url, widget: image, allow_empty: true }
+      - label: "404 Page"
+        name: "not_found"
+        file: "src/404.njk"
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text, required: false }
+          - { label: "Permalink", name: permalink, widget: string }
+          - { label: "Hero Button Text", name: button_title, widget: string, required: false }
+          - { label: "Hero Button Link", name: button_link, widget: string, required: false }
+
+  - label: "Blog"
+    name: "blog"
+    folder: "src/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    preview_path: "blog/{{slug}}/"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Description", name: description, widget: text, required: false }
+      - { label: "Publish Date", name: date, widget: datetime, required: false }
+      - { label: "Hero Button Text", name: button_title, widget: string, required: false }
+      - { label: "Hero Button Link", name: button_link, widget: string, required: false }
+      - { label: "Hero Image", name: image_url, widget: image, required: false, allow_empty: true }
+      - { label: "Body", name: body, widget: markdown }
+
+  - label: "Service Entries"
+    name: "services"
+    folder: "src/services"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    preview_path: "services/{{slug}}/"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Summary", name: summary, widget: text }
+      - { label: "Hero Description", name: description, widget: text, required: false }
+      - { label: "Display Order", name: order, widget: number, required: false }
+      - { label: "Hero Button Text", name: button_title, widget: string, required: false }
+      - { label: "Hero Button Link", name: button_link, widget: string, required: false, default: "/contact/" }
+      - { label: "Hero Image", name: image_url, widget: image, required: false, allow_empty: true }
+      - { label: "Body", name: body, widget: markdown }
+
