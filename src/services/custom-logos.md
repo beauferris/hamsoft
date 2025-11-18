@@ -1,7 +1,7 @@
 ---
-title: Custom Logos
-summary: Easy to remember and distinctive logos, giving your brand a unique identity.
-description: Easy to remember and distinctive logos, giving your brand a unique identity.
+title: Websites That Convert
+summary: World-class UX/UI and development for high-impact websites.
+description: World-class UX/UI and development for high-impact websites.
 button_link: /contact/
 ---
-Easy to remember and distinctive logos, giving your brand a unique identity.
+World-class UX/UI and development for high-impact websites.
