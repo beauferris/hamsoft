@@ -5,7 +5,7 @@ metaTitle: "We’re here to help you go digital"
 description: We specialize in helping small businesses go digital
 button_title: "Start Now"
 button_link: "/contact"
- 
+image_url: "/assets/images/hamsoft.svg"
 main_wrapper_class: "govuk-main-wrapper--no-top-padding"
 landing_layout: home
 
@@ -35,7 +35,7 @@ landing_layout: home
                 <p class="govuk-body">{{ service.data.description }}</p>
               {% endif %}
             </div>
-              {% if service.data.icon_url %}
+            {% if service.data.icon_url %}
               <div class="ham-card__media ham-card__media--icon">
                 <img src="{{ service.data.icon_url }}" alt="{{ service.data.title }} icon" class="ham-card-icon">
               </div>
