@@ -17,23 +17,15 @@ landing_layout: home
     <div class="govuk-width-container">
       <h2 class="govuk-heading-l">Our Services</h2>
       <p class="govuk-body-lead" style="max-width:60rem">
-        Explore the focused legal services AoLaw provides to protect your interests.
+       
       </p>
       <div class="dfe-grid-container">
         {% for service in serviceItems %}
-          <div class="dfe-card">
-            {% if service.data.icon_url %}
-              <div class="dfe-card__media dfe-card__media--icon">
-                <img src="{{ service.data.icon_url }}" alt="{{ service.data.title }} icon" class="service-card-icon">
-              </div>
-            {% elseif service.data.image_url %}
-              <div class="dfe-card__media">
-                <img src="{{ service.data.image_url }}" alt="{{ service.data.title }}" class="dfe-card__image">
-              </div>
-            {% endif %}
-            <div class="dfe-card-container">
+          <div class="ham-card">
+          
+            <div class="ham-card-container">
               <h3 class="govuk-heading-m">
-                <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="{{ service.url }}">
+                <a class="govuk-link govuk-link--no-visited-state ham-card-link--header" href="{{ service.url }}">
                   {{ service.data.title }}
                 </a>
               </h3>
@@ -43,6 +35,15 @@ landing_layout: home
                 <p class="govuk-body">{{ service.data.description }}</p>
               {% endif %}
             </div>
+              {% if service.data.icon_url %}
+              <div class="ham-card__media ham-card__media--icon">
+                <img src="{{ service.data.icon_url }}" alt="{{ service.data.title }} icon" class="ham-card-icon">
+              </div>
+            {% elseif service.data.image_url %}
+              <div class="ham-card__media">
+                <img src="{{ service.data.image_url }}" alt="{{ service.data.title }}" class="ham-card__image">
+              </div>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
