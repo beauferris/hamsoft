@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
   repo: beauferris/hamsoft
-  auth_type: pkce
   base_url: https://auth.decapbridge.com
   auth_endpoint: /sites/c5a3c919-b9e2-4c04-88a2-ff8626e76808/pkce
   auth_token_endpoint: /sites/c5a3c919-b9e2-4c04-88a2-ff8626e76808/token
