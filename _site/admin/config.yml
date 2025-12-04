@@ -1,9 +1,13 @@
 backend:
   name: git-gateway
-  repo: beauferris/hamsoft
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/c5a3c919-b9e2-4c04-88a2-ff8626e76808
+  repo: beauferris/hamsoft
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/c5a3c919-b9e2-4c04-88a2-ff8626e76808/pkce
+  auth_token_endpoint: /sites/c5a3c919-b9e2-4c04-88a2-ff8626e76808/token
   gateway_url: https://gateway.decapbridge.com
+
 # Enable PKCE fields (optional, recommended)
 auth:
   email_claim: email
@@ -15,8 +19,7 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
-site_url: https://hamsoft.netlify.app
-
+site_url: https://hamsoft.netlify.app  
 local_backend: true
 
 media_folder: "src/assets/images/uploads"
