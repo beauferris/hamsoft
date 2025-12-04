@@ -1532,7 +1532,7 @@ hr{
   }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1140px) {
   .govuk-width-container {
     margin-right: auto;
     margin-left: auto;
