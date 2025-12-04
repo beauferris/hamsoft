@@ -2,13 +2,17 @@
   "private": true,
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy",
+    "build": "eleventy && npm run minify-css",
+    "minify-css": "postcss _site/assets/styles.css -o _site/assets/styles.css --use cssnano",
     "clean": "rm -rf _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "markdown-it": "^14.1.0",
-    "markdown-it-multimd-table": "^4.2.3"
+    "markdown-it-multimd-table": "^4.2.3",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^10.1.0"
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^2.0.4",
