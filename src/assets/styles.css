@@ -1,6 +1,43 @@
 @charset "UTF-8";
 
 
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/raleway-regular.woff2') format('woff2'),
+       url('/assets/fonts/raleway-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/raleway-bold.woff2') format('woff2'),
+       url('/assets/fonts/raleway-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/open-sans-regular.woff2') format('woff2'),
+       url('/assets/fonts/open-sans-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/open-sans-bold.woff2') format('woff2'),
+       url('/assets/fonts/open-sans-bold.woff') format('woff');
+}
+
+
 html, body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
 }
