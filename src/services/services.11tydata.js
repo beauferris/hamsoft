@@ -8,7 +8,7 @@ module.exports = {
     image_url: (data) =>
       data.image_url && data.image_url.trim() !== ""
         ? data.image_url
-        : "/assets/images/logo.png",
+        : null,
     icon_url: (data) =>
       data.icon_url && data.icon_url.trim() !== "" ? data.icon_url : null,
   },

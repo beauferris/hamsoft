@@ -3718,7 +3718,7 @@ hr{
 @media (min-width: 20em) {
   .govuk-header__menu-button {
     position: absolute;
-    top: 16px;
+    top: 12px;
     right: 0;
     margin: 0;
   }
@@ -3726,7 +3726,7 @@ hr{
 
 @media (min-width: 40.0625em) {
   .govuk-header__menu-button {
-    top: 16px;
+    top: 12px;
   }
 }
 
@@ -4579,7 +4579,7 @@ hr{
 .govuk-header__container {
   position: relative;
   margin-bottom: 0px;
-  padding: 10px 0;
+  padding-top: 0;
   border-bottom: none;
 }
 

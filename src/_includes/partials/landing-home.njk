@@ -1,7 +1,7 @@
 <div class="landing landing--dark">
   <div class="govuk-width-container">
     <div class="govuk-grid-row landing__grid">
-      <div class="govuk-grid-column-one-half landing__content">
+      <div class="{% if image_url %}govuk-grid-column-one-half{% else %}govuk-grid-column-full{% endif %} landing__content">
         {% include "partials/breadcrumbs.njk" %}
 
         <h2 class="govuk-heading-xl landing__title">{{ title | safe }}</h2>
@@ -13,11 +13,11 @@
           {% endif %}
         </div>
       </div>
+      {% if image_url %}
       <div class="govuk-grid-column-one-half landing__media">
-        {% if image_url %}
-          <img src={{ image_url }} alt={{ description }} class="landing__image__home"/>
-        {% endif %}
+        <img src={{ image_url }} alt={{ description }} class="landing__image__home"/>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>

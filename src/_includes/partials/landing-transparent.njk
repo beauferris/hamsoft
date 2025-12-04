@@ -1,9 +1,9 @@
 <div class="landing-transparent">
+  {% if image_url %}
   <div class="landing-transparent-bg">
-    {% if image_url %}
-      <img src={{image_url}} alt={{description}} class="landing-transparent-image"/>
-    {% endif %}
+    <img src={{image_url}} alt={{description}} class="landing-transparent-image"/>
   </div>
+  {% endif %}
   <div class="landing-transparent-content">
     <div class="govuk-width-container">
       <div class="landing-transparent-text">

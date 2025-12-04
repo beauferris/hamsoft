@@ -1,10 +1,10 @@
 <div class="landing overlay-landing">
+  {% if image_url %}
   <div class="landing-background">
-    {% if image_url %}
-      <img src={{image_url}} alt={{description}} class="landing-bg-image"/>
-    {% endif %}
+    <img src={{image_url}} alt={{description}} class="landing-bg-image"/>
     <div class="landing-overlay"></div>
   </div>
+  {% endif %}
   <div class="landing-content-overlay">
     <div class="govuk-width-container">
       <div class="landing-text-overlay">
