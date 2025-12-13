@@ -43,7 +43,7 @@ html, body {
 }
 
 :root {
-  --main-header-color: rgb(19,19,21);
+  --main-header-color: rgb(16,17,73);
   --main-landing-color: #D2042D;
   --card-focus-background: var(--main-header-color);
   --card-link-color: var(--main-header-color);
@@ -67,6 +67,11 @@ html, body {
   --hightlight: var(--main-header-color);
   --border-main: 1px solid #b1b4b6;
 }
+
+.landing__grid{
+  padding: 30px 0 !important;
+}
+
 .section{
   padding: 50px 0;
   width: 100%;
@@ -1179,10 +1184,10 @@ hr{
 
 
 
-.govuk-grid-row {
+/* .govuk-grid-row {
   margin-right: -15px;
   margin-left: -15px;
-}
+} */
 
 .govuk-grid-row::after {
   content: "";
@@ -3305,6 +3310,7 @@ hr{
   border-bottom: 10px solid #ffffff;
   background: var(--main-header-color);
   color: #ffffff;
+  background-color: transparent;
 }
 
 @media print {
@@ -3327,13 +3333,6 @@ hr{
   }
 }
 
-.govuk-template--rebranded .govuk-header {
-  border-bottom: 1px solid transparent;
-}
-
-.govuk-template--rebranded .govuk-header {
-  background: #1d70b8;
-}
 
 @media (max-width: 48.0525em) {
   .govuk-header--with-js-navigation .govuk-header__logo {
@@ -3355,6 +3354,7 @@ hr{
   margin-bottom: -10px;
   padding-top: 10px;
   border-bottom: 10px solid #1d70b8;
+  
 }
 
 .govuk-header__container::after {
@@ -4586,7 +4586,7 @@ hr{
 .govuk-header {
   margin-bottom: 0;
   border-bottom: 0;
-  background-color: var(--main-header-color);
+  /* background-color: var(--main-header-color); */
 
 }
 
@@ -4619,20 +4619,26 @@ hr{
 }
 
 .landing {
-  background-color: white;
   overflow: hidden;
   /* margin-bottom: 30px; */
-
-  padding: 50px 0;
+  /* padding: 50px 0; */
   z-index: 2;
   min-height: 200px;
+  background: linear-gradient(205deg,#15bcdf4d,#15bcdf0d,#30e9be4d);
+}
 
+.centered .landing-stacked-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
 }
 
 .overlay-landing {
   position: relative;
   padding: 0;
-  min-height: 500px;
+  
 }
 .langind{
 
@@ -4668,16 +4674,68 @@ hr{
 .landing-content-overlay {
   position: relative;
   z-index: 3;
-  min-height: 500px;
   display: block;
 }
 
+.landing-content-overlay .govuk-header {
+  position: relative;
+  z-index: 4;
+}
+
 .landing-text-overlay {
-  padding: 60px 0 0 0;
+  padding: 30px 0px;
+}
+
+/* Consistent spacing for all landing elements */
+.landing__title,
+.landing-text-overlay .govuk-heading-xl,
+.landing-stacked-content .govuk-heading-xl,
+.landing-transparent-text .govuk-heading-xl,
+.landing .govuk-width-container .govuk-heading-xl {
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 35rem;
+}
+
+.landing__description,
+.landing-text-overlay .govuk-body-lead,
+.landing-stacked-content .govuk-body-lead,
+.landing-transparent-text .govuk-body-lead,
+.landing .govuk-width-container .govuk-body-lead {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.landing__actions,
+.landing-text-overlay .govuk-button,
+.landing-stacked-content .govuk-button,
+.landing-transparent-text .govuk-button,
+.landing .govuk-width-container .govuk-button {
+  margin-top: 0;
+}
+
+/* Breadcrumbs spacing */
+.landing__content .govuk-breadcrumbs,
+.landing-text-overlay .govuk-breadcrumbs,
+.landing-stacked-content .govuk-breadcrumbs,
+.landing-transparent-text .govuk-breadcrumbs,
+.landing .govuk-width-container .govuk-breadcrumbs {
+  margin-bottom: 20px;
+}
+
+/* Content area padding for consistent spacing */
+.landing__content {
+  padding: 0;
+}
+
+/* Remove padding from content when inside grid (grid already has padding) */
+.landing__grid .landing__content {
+  padding: 0;
 }
 
 .landing-stacked-content {
   margin-bottom: 0;
+  padding: 50px 0;
 }
 
 .landing-stacked-image {
@@ -4717,7 +4775,7 @@ hr{
 }
 
 .landing-transparent-text {
-  padding: 60px 0;
+  padding: 50px 0;
 }
 
 .photo-gallery {
@@ -5261,10 +5319,10 @@ input, textarea, select, button {
 }
 
 
-.site-header {
+/* .site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-}
+} */
 
 .dfe-card__media--icon {
   display: flex;
@@ -5352,11 +5410,125 @@ input, textarea, select, button {
   filter: brightness(0) invert(1);
 }
 
+/* Text inverse - white text for header and landing */
+.text-inverse .govuk-header__link:link,
+.text-inverse .govuk-header__link:visited,
+.text-inverse .govuk-header__link:hover,
+.text-inverse .govuk-header__link:active {
+  color: #ffffff;
+}
+
+.text-inverse .govuk-heading-xl,
+.text-inverse .govuk-body-lead,
+.text-inverse .govuk-body {
+  color: #ffffff;
+}
+
+.text-inverse .govuk-breadcrumbs__link {
+  color: #f3f2f1;
+}
+
+.text-inverse .govuk-breadcrumbs__link:hover {
+  color: #d0d0d0;
+}
+
+.text-inverse .govuk-breadcrumbs__link::before {
+  border-color: #ffffff;
+}
+
+.text-inverse .govuk-breadcrumbs__link:visited {
+  color: #f3f2f1;
+}
+
+/* Mobile menu button colors when inverse */
+.text-inverse .govuk-header__menu-button {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.text-inverse .govuk-header__menu-button::before {
+  background-color: #ffffff;
+  box-shadow: 0 -7px 0 0 #ffffff, 0 7px 0 0 #ffffff;
+}
+
+.text-inverse .govuk-header__menu-button:hover,
+.text-inverse .govuk-header__menu-button:focus {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Mobile navigation menu colors when inverse */
+.text-inverse .govuk-header__navigation {
+  background-color: transparent;
+}
+
+.text-inverse .govuk-header__navigation .govuk-header__link:link,
+.text-inverse .govuk-header__navigation .govuk-header__link:visited {
+  color: #ffffff;
+}
+
+.text-inverse .govuk-header__navigation .govuk-header__link:hover,
+.text-inverse .govuk-header__navigation .govuk-header__link:active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-inverse .govuk-header__navigation-item {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Default text colors when NOT inverse */
+.landing:not(.text-inverse):not(.landing--dark) .govuk-heading-xl,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-body-lead,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-body {
+  color: #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__link:link,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__link:visited {
+  color: #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__link:hover,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__link:active {
+  color: #003078;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-breadcrumbs__link {
+  color: #0b0c0c;
+}
+
+/* Mobile menu default colors when NOT inverse */
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__menu-button {
+  color: #0b0c0c;
+  border-color: #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__menu-button::before {
+  background-color: #0b0c0c;
+  box-shadow: 0 -7px 0 0 #0b0c0c, 0 7px 0 0 #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__menu-button:hover,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__menu-button:focus {
+  color: #0b0c0c;
+  border-color: #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__navigation .govuk-header__link:link,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__navigation .govuk-header__link:visited {
+  color: #0b0c0c;
+}
+
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__navigation .govuk-header__link:hover,
+.landing:not(.text-inverse):not(.landing--dark) .govuk-header__navigation .govuk-header__link:active {
+  color: #003078;
+}
+
 .landing__actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
 .landing--dark .landing__image {

@@ -1,4 +1,4 @@
-<div class="landing overlay-landing">
+<div class="landing overlay-landing{% if text == 'inverse' %} text-inverse{% endif %}">
   {% if image_url %}
   <div class="landing-background">
     <img src={{image_url}} alt={{description}} class="landing-bg-image"/>
@@ -6,15 +6,16 @@
   </div>
   {% endif %}
   <div class="landing-content-overlay">
+    {% include "partials/header.njk" %}
     <div class="govuk-width-container">
       <div class="landing-text-overlay">
         {% include "partials/breadcrumbs.njk" %}
         
-        <h2 style="margin:30px 0;max-width:35rem" class="govuk-heading-xl">{{title}}</h2>
+        <h2 class="govuk-heading-xl">{{title}}</h2>
         <h2 class="govuk-body-lead">{{description}}</h2>
 
         {% if button_title %}
-          <a style="margin-top:30px" href={{button_link}} class="govuk-button govuk-button--start">{{button_title}}</a>
+          <a href={{button_link}} class="govuk-button govuk-button--start">{{button_title}}</a>
         {% endif %}
       </div>
     </div>

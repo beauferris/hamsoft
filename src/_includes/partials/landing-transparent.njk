@@ -1,4 +1,5 @@
-<div class="landing-transparent">
+<div class="landing-transparent{% if text == 'inverse' %} text-inverse{% endif %}">
+  {% include "partials/header.njk" %}
   {% if image_url %}
   <div class="landing-transparent-bg">
     <img src={{image_url}} alt={{description}} class="landing-transparent-image"/>
@@ -9,11 +10,11 @@
       <div class="landing-transparent-text">
         {% include "partials/breadcrumbs.njk" %}
         
-        <h2 style="margin:30px 0;max-width:35rem" class="govuk-heading-xl">{{title}}</h2>
+        <h2 class="govuk-heading-xl">{{title}}</h2>
         <h2 class="govuk-body-lead">{{description}}</h2>
 
         {% if button_title %}
-          <a style="margin-top:30px" href={{button_link}} class="govuk-button govuk-button--start">{{button_title}}</a>
+          <a href={{button_link}} class="govuk-button govuk-button--start">{{button_title}}</a>
         {% endif %}
       </div>
     </div>
