@@ -55,17 +55,35 @@ html, body {
   --link-color-visisted: var(--main-header-color);
 
   --link-color-hover: #003078;
-  --link-color-active: #ff5e1a;
-  --link-color-focus: #ff5e1a;
-  --link-bg-color: var(--hightlight);
+  --link-color-active:  #003078;
+  --link-color-focus:  #003078;
+  --link-bg-color: transparent;
 
-  --button-bg: #595f39;
+  --button-bg: #000;
   --button-shadow: #424728;
-  --button-bg-hover: #4d532f;
-  --button-border-focus: #595f39;
+  --button-bg-hover: #71717a;
+  --button-border-focus: #71717a;
 
-  --hightlight: var(--main-header-color);
+  --hightlight: #71717a;
   --border-main: 1px solid #b1b4b6;
+}
+
+
+.body{
+  background:
+  radial-gradient(
+    1200px 600px at 70% 40%,
+    rgba(155, 89, 182, 0.35) 0%,
+    rgba(88, 24, 124, 0.25) 35%,
+    rgba(25, 15, 45, 0.9) 70%
+  ),
+  linear-gradient(
+    135deg,
+    #0b0716 0%,
+    #120b24 35%,
+    #1a1033 65%,
+    #0e081b 100%
+  ) !important;
 }
 
 .landing__grid{
@@ -1237,7 +1255,7 @@ hr{
 .govuk-grid-column-two-thirds {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 15px;
+
 }
 
 @media (min-width: 40.0625em) {
@@ -1474,9 +1492,6 @@ hr{
   text-size-adjust: 100%;
 }
 
-.govuk-template--rebranded {
-  background-color: #f4f8fb;
-}
 
 @supports (position: -webkit-sticky) or (position: sticky) {
   .govuk-template {
@@ -2661,7 +2676,7 @@ hr{
 
 
 .govuk-details {
-  font-family: 'Raleway', arial, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2674,7 +2689,7 @@ hr{
 
 @media print {
   .govuk-details {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 }
 
@@ -2780,8 +2795,8 @@ hr{
 
   .govuk-details__summary:focus {
     outline: 3px solid transparent;
-    color: #0b0c0c;
-    background-color: var(--hightlight);
+    /* color: #0b0c0c;
+    background-color: var(--hightlight); */
     box-shadow: 0 -2px var(--hightlight), 0 4px #0b0c0c;
     text-decoration: none;
   }
@@ -4625,6 +4640,7 @@ hr{
   z-index: 2;
   min-height: 200px;
   background: linear-gradient(205deg,#15bcdf4d,#15bcdf0d,#30e9be4d);
+ 
 }
 
 .centered .landing-stacked-content{
@@ -5180,9 +5196,10 @@ input, textarea, select, button {
 }
 
 .govuk-details {
-  outline: 1px solid #b1b4b6;
+
   /* padding-top: 10px; */
   margin-bottom: 0;
+  border-bottom: 1px solid;;
 }
 
 .govuk-details__summary-text {
@@ -5191,6 +5208,7 @@ input, textarea, select, button {
   padding: 15px;
   /* padding-left: 0; */
   /* margin: 10px 0; */
+  padding: 25px 0px;
 }
 
 /* 
@@ -5355,8 +5373,20 @@ input, textarea, select, button {
 }
 
 .landing--dark {
-  background: var(--main-header-color);
-  color: #ffffff;
+  background:
+  radial-gradient(
+    1000px 500px at 75% 45%,
+    rgba(140, 90, 200, 0.25) 0%,
+    rgba(60, 30, 90, 0.25) 40%,
+    rgba(15, 10, 30, 0.95) 75%
+  ),
+  linear-gradient(
+    135deg,
+    #0a0614 0%,
+    #0f0a20 40%,
+    #14102b 70%,
+    #0a0614 100%
+  );
  
 }
 
@@ -5531,12 +5561,19 @@ input, textarea, select, button {
   margin-top: 0;
 }
 
+.landing__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .landing--dark .landing__image {
   width: 100%;
-  height: 300px;
+
   border-radius: 5px;
   object-fit: contain;
-  margin-top: 30px;
+
 }
 
 .landing__image__home {
@@ -5545,6 +5582,58 @@ input, textarea, select, button {
   object-fit: cover;
   border-radius: 5px;
   
+}
+
+
+.share-section {
+  
+  text-align: center;
+  position: sticky;
+  
+}
+
+.share-section__label {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #505a5f;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.share-section__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+.share-section__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.share-section__icon:hover {
+  background-color: #333333;
+  transform: scale(1.1);
+}
+
+.share-section__icon:focus {
+  outline: 3px solid transparent;
+  box-shadow: 0 0 0 3px #ff5e1a;
+}
+
+.share-section__icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .about-image {

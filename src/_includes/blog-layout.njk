@@ -37,29 +37,29 @@
 
   <body class="govuk-template__body">
 
-
     {% if landing_layout %}
-      {% set show_call_button = false %}
       {% include "partials/landing-" + landing_layout + ".njk" %}
     {% else %}
-      {% set show_call_button = false %}
       {% include "partials/landing-default.njk" %}
     {% endif %}
 
-    <main class="govuk-main-wrapper" id="main-content">
+    <main class="govuk-main-wrapper"  id="main-content">
       <div class="govuk-width-container">
-        <article class="blog-content">
-          {{ content | safe }}
-        </article>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds blog-content">
+            {{ content | safe }}
+          </div>
+          <div class="govuk-grid-column-one-third">
+            {% include "partials/share-section.njk" %}
+          </div>
+        </div>
       </div>
     </main>
     
-    {% include "partials/contact.njk" %}
+
 
     <script src="/scripts/main.js" defer></script>
   </body>
   {% include "partials/footer.njk" %}
 </html>
-
-
 

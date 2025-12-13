@@ -67,6 +67,17 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  eleventyConfig.addCollection("blogPosts", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/blog/**/*.md")
+      .filter((item) => {
+        // Exclude index files and only include actual blog posts
+        const filePath = item.inputPath || "";
+        return !filePath.includes("index.") && filePath.endsWith(".md");
+      })
+      .sort((a, b) => b.date - a.date);
+  });
+
   eleventyConfig.addCollection("services", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/services/**/*.md")

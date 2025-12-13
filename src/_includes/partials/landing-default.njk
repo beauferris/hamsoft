@@ -1,4 +1,4 @@
-<div class="landing landing--dark{% if text == 'inverse' %} text-inverse{% endif %}">
+<div class="landing {% if text == 'inverse' %} text-inverse{% endif %}">
   {% include "partials/header.njk" %}
   <div class="govuk-width-container">
     <div class="govuk-grid-row landing__grid">
@@ -16,7 +16,7 @@
       </div>
       {% if image_url %}
       <div class="govuk-grid-column-one-half landing__media">
-        <img src={{ image_url }} alt={{ description }} class="landing__image"/>
+        <img src="{{ image_url }}" alt="{{ description }}" class="landing__image"/>
       </div>
       {% endif %}
     </div>

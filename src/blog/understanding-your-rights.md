@@ -3,7 +3,7 @@ title: Understanding Your Rights
 description: Most people don’t know exactly when they required to talk to police
   — and when they are not.
 date: 2025-12-13T03:10:00.000-07:00
-image_url: /assets/images/uploads/know-your-rights-high-res-1200x800.png
+image_url: /assets/images/uploads/p1.webp
 ---
 In Canada, the Charter of Rights and Freedoms protects you from arbitrary detention. That means police can’t just stop you for no reason and force you to answer questions.
 
