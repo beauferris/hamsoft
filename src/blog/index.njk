@@ -19,11 +19,11 @@ pagination:
             <li>
               <div class="govuk-grid-row">
                 <div class="{% if post.data.image_url %}govuk-grid-column-two-thirds{% else %}govuk-grid-column-full{% endif %}">
-                  <h3 class="govuk-heading-m">
+                  <h2 class="govuk-heading-l">
                     <a class="govuk-link govuk-link--no-visited-state" href="{{ post.url }}">
                       {{ post.data.title }}
                     </a>
-                  </h3>
+                  </h2>
                   {% if post.data.description %}
                     <p class="govuk-body">{{ post.data.description }}</p>
                   {% endif %}
