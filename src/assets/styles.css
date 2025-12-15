@@ -68,6 +68,69 @@ html, body {
   --border-main: 1px solid #b1b4b6;
 }
 
+.sticker {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  pointer-events: none; /* don’t steal clicks */
+  user-select: none;
+  image-rendering: pixelated;
+  /* box-shadow: 6px 6px 0 rgba(0,0,0,0.15); */
+}
+
+
+.sticker-shopify {
+  width: 160px;
+  bottom: 50px;
+  left: 20px;
+  transform: rotate(6deg);
+}
+
+.sticker-laptop {
+  bottom: 40px;
+  right: -10px;
+
+  transform: rotate(6deg) translateZ(0);
+  
+}
+
+.sticker-browser {
+  top: 0px;
+  right: 10px;
+  transform: rotate(-6deg) translateZ(0);
+  
+}
+
+
+@media (max-width: 40.0625em) {
+  .sticker {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    pointer-events: none; /* don’t steal clicks */
+    user-select: none;
+    image-rendering: pixelated;
+    /* box-shadow: 6px 6px 0 rgba(0,0,0,0.15); */
+  }
+
+ 
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(6deg); }
+  50% { transform: translateY(-6px) rotate(6deg); }
+}
+
+.sticker-shopify {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
 
 .body{
   background:
@@ -3702,12 +3765,12 @@ hr{
   text-decoration: solid underline 3px;
 
   text-underline-offset: 0.1578em;
-  background-color: #B80025;
+  background-color: white;
 }
 
 .govuk-header__menu-button:focus {
  
-  background-color: #B80025;
+  background-color: white;
   text-decoration: none;
 }
 
@@ -4630,7 +4693,7 @@ hr{
   transform: rotate(45deg);
   border: solid;
   border-width: 1px 1px 0 0;
-  border-color: white;
+ 
 }
 
 .landing {
