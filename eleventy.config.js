@@ -78,6 +78,11 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  eleventyConfig.addCollection("reviews", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/reviews/**/*.md");
+  });
+
   eleventyConfig.addCollection("services", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/services/**/*.md")

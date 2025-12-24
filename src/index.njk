@@ -9,6 +9,8 @@ main_wrapper_class: "govuk-main-wrapper--no-top-padding"
 landing_layout: sticker
 ---
 
+ {% include "partials/footer.njk" %}
+<!--
 {% set serviceItems = collections.services or [] %}
 {% if serviceItems | length %}
   <section class="grey-section">
@@ -48,5 +50,5 @@ landing_layout: sticker
     </div>
   </section>
 {% endif %}
-
+-->
   

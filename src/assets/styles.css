@@ -70,34 +70,36 @@ html, body {
 
 .sticker {
   position: absolute;
-  width: 200px;
+  width: 180px;
   height: auto;
-  pointer-events: none; /* don’t steal clicks */
+  pointer-events: none; /* don't steal clicks */
   user-select: none;
   image-rendering: pixelated;
+  transition: transform 0.05s linear;
+  will-change: transform;
   /* box-shadow: 6px 6px 0 rgba(0,0,0,0.15); */
 }
 
 
 .sticker-shopify {
-  width: 160px;
-  bottom: 50px;
-  left: 20px;
-  transform: rotate(6deg);
+  
+  bottom: 20px;
+  left: 100px;
+  /* transform: rotate(6deg); */
 }
 
 .sticker-laptop {
-  bottom: 40px;
-  right: -10px;
+  bottom: 20px;
+  right: 100px;
 
-  transform: rotate(6deg) translateZ(0);
+  /* transform: rotate(6deg) translateZ(0); */
   
 }
 
 .sticker-browser {
-  top: 0px;
-  right: 10px;
-  transform: rotate(-6deg) translateZ(0);
+  top: 20px;
+  right: 50px;
+
   
 }
 
@@ -113,24 +115,37 @@ html, body {
     /* box-shadow: 6px 6px 0 rgba(0,0,0,0.15); */
   }
 
- 
+  .sticker-shopify {
+  
+    bottom: 20px;
+    left: 20px;
+    /* transform: rotate(6deg); */
+  }
+
+  .sticker-laptop {
+    bottom: 20px;
+    right: 20px;
+  
+    /* transform: rotate(6deg) translateZ(0); */
+    
+  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(6deg); }
   50% { transform: translateY(-6px) rotate(6deg); }
 }
-
+/* 
 .sticker-shopify {
   animation: float 6s ease-in-out infinite;
-}
+} */
 
-.hero-inner {
+/* .hero-inner {
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
 .body{
   background:
@@ -1626,7 +1641,7 @@ hr{
 
 
 .govuk-width-container {
-  max-width: 960px;
+  max-width: 1300px;
   margin-right: 15px;
   margin-left: 15px;
 }
@@ -1652,7 +1667,7 @@ hr{
   }
 }
 
-@media (min-width: 1140px) {
+@media (min-width: 1330px) {
   .govuk-width-container {
     margin-right: auto;
     margin-left: auto;
@@ -4818,8 +4833,12 @@ hr{
 }
 
 .landing-stacked-image {
-  
   margin: 0;
+}
+
+/* Ensure hero-inner has position relative for sticker positioning */
+.hero-inner {
+  position: relative;
 }
 
 .landing-transparent {
@@ -5137,6 +5156,47 @@ hr{
   }
 }
 
+/* Review Cards */
+.review-cards {
+  padding: 50px 0;
+}
+
+.review-cards__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 40.0625em) {
+  .review-cards__grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+}
+
+.review-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-card__body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0b0c0c;
+  margin: 0 0 20px 0;
+}
+
+.review-card__client {
+  font-size: 14px;
+  font-weight: 600;
+  color: #505a5f;
+  margin: 0;
+  padding-top: 15px;
+  border-top: 1px solid #f3f2f1;
+}
+
 .button-banner {
   background-color: #f3f2f1;
   width: 100%;
@@ -5205,7 +5265,7 @@ hr{
 }
 
 .govuk-width-container {
-  max-width: 1080px;
+  max-width: 1300px;
 }
 
 /* Load this AFTER govuk-frontend's CSS */
@@ -5743,4 +5803,50 @@ input, textarea, select, button {
 .service-cta-panel .govuk-button:hover {
   background: #f3f2f1;
   color: #1d70b8;
+}
+
+
+/* Social Media Icons */
+.social-media-icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #000000;
+  border-radius: 50%;
+  border: 1px solid #000000;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+}
+
+.social-icon:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon--facebook {
+  background-color: #000000;
+  border: none;
+}
+
+.social-icon--facebook svg {
+  width: 20px;
+  height: 20px;
 }

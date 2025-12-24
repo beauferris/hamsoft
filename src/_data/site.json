@@ -7,5 +7,10 @@
   "email": "info@hamsoft.ca",
   "address": "700 6 Ave SW, Calgary, AB T2P 0T8",
   "address_url": "https://www.google.com/maps/dir//700+6+Ave+SW,+Calgary,+AB+T2P+0T8/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x53716fe4f4ad6df7:0x8a3b6a6f5f7d45db?sa=X&ved=1t:707&ictx=111",
-  "instagram_handle": "yourhandle"
+  "instagram_handle": "yourhandle",
+  "social": {
+    "instagram": "https://www.instagram.com/picturesqueexteriors/",
+    "youtube": "https://www.youtube.com/@picturesqueexteriors",
+    "facebook": "https://www.facebook.com/profile.php?id=61581626850358&mibextid=wwXIfr&rdid=SrLmYSv7OTuB1M1W&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18VsZMMtrQ%2F%3Fmibextid%3DwwXIfr"
+  }
 }

@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   document.querySelectorAll(".photo-gallery").forEach(setupPhotoGallery);
+  
+  // Sticker parallax effect
+  setupStickerParallax();
 });
 
 function setupPhotoGallery(gallery) {
@@ -55,4 +58,85 @@ function setupPhotoGallery(gallery) {
   }
 
   updateSlides();
+}
+
+function setupStickerParallax() {
+  const stickers = document.querySelectorAll(".hero-inner .sticker");
+  if (!stickers.length) return;
+
+  const wrapper = document.querySelector(".hero-inner");
+  if (!wrapper) return;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let animationId = null;
+  let isAnimating = false;
+
+  const intensity = 10; // Reduced intensity for less movement
+  const threshold = 0.001; // Stop animating when difference is smaller than this
+
+  function updateStickers() {
+    // Calculate transform values (same for all stickers) - only translation, no rotation
+    const translateX = currentX * intensity;
+    const translateY = currentY * intensity;
+
+    stickers.forEach((sticker) => {
+      // Apply only translation, no rotation at all
+      sticker.style.transform = `translate(${translateX}px, ${translateY}px)`;
+    });
+  }
+
+  function animate() {
+    const prevX = currentX;
+    const prevY = currentY;
+
+    // More responsive interpolation (less floaty)
+    currentX += (mouseX - currentX) * 0.4;
+    currentY += (mouseY - currentY) * 0.4;
+
+    // Check if values have changed significantly
+    const deltaX = Math.abs(currentX - prevX);
+    const deltaY = Math.abs(currentY - prevY);
+
+    // Only update if there's meaningful change
+    if (deltaX > threshold || deltaY > threshold) {
+      updateStickers();
+    }
+
+    // Check if we're close enough to target to stop animating
+    const distToTarget = Math.abs(mouseX - currentX) + Math.abs(mouseY - currentY);
+    
+    if (distToTarget > threshold) {
+      animationId = requestAnimationFrame(animate);
+    } else {
+      // Final update to ensure we're exactly at target
+      currentX = mouseX;
+      currentY = mouseY;
+      updateStickers();
+      isAnimating = false;
+    }
+  }
+
+  function startAnimation() {
+    if (!isAnimating) {
+      isAnimating = true;
+      animationId = requestAnimationFrame(animate);
+    }
+  }
+
+  // Track mouse movement
+  wrapper.addEventListener("mousemove", (e) => {
+    const rect = wrapper.getBoundingClientRect();
+    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
+    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+    startAnimation();
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    mouseX = 0;
+    mouseY = 0;
+    startAnimation();
+  });
 }
