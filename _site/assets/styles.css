@@ -5169,7 +5169,7 @@ hr{
 
 @media (min-width: 40.0625em) {
   .review-cards__grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 30px;
   }
 }
@@ -5190,7 +5190,7 @@ hr{
 
 .review-card__client {
   font-size: 14px;
-  font-weight: 600;
+ 
 
   margin: 0;
   padding-top: 15px;

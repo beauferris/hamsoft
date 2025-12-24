@@ -6,8 +6,14 @@
     <div class="review-cards__grid">
       {% for review in collections.reviews %}
         <div class="review-card">
-          <p class="review-card__body">{{ review.data.body }}</p>
-          <p class="review-card__client">{{ review.data.client }}</p>
+          <div class="review-card__body">
+            {% if review.data.body %}
+              {{ review.data.body | markdown | safe }}
+            {% else %}
+              {{ review.templateContent | safe }}
+            {% endif %}
+          </div>
+          <p class="review-card__client">- {{ review.data.client }}</p>
         </div>
       {% endfor %}
     </div>

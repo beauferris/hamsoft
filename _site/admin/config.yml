@@ -127,6 +127,6 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     fields:
-      - { label: "Body", name: body, widget: text }
       - { label: "Client", name: client, widget: string }
+      - { label: "Body", name: body, widget: markdown }
 
