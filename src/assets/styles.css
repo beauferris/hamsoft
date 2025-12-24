@@ -5178,7 +5178,7 @@ hr{
   background-color: #ffffff;
   border-radius: 8px;
   padding: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #b1b4b6;
 }
 
 .review-card__body {
@@ -5191,10 +5191,10 @@ hr{
 .review-card__client {
   font-size: 14px;
   font-weight: 600;
-  color: #505a5f;
+
   margin: 0;
   padding-top: 15px;
-  border-top: 1px solid #f3f2f1;
+  
 }
 
 .button-banner {
