@@ -1,0 +1,4 @@
+---
+client: Tracy Norris
+---
+Ali is a kind, humble lawyer who does his best to work with his clients for their wellbeing. I would recommend him to anyone in need of a professional trustworthy lawyer.

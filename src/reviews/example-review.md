@@ -1,5 +1,4 @@
 ---
-body: "This is an example review. The service was excellent and I would highly recommend them to anyone looking for quality work."
-client: "John Smith"
+client: Fysal Beauferris
 ---
-
+Ali was highly professional, completed my business incorporation quickly, and gave clear, straightforward instructions throughout the process. Highly recommend.
