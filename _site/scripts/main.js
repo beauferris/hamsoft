@@ -134,9 +134,15 @@ function setupStickerParallax() {
     stickers.forEach((sticker) => {
       // Don't apply parallax if sticker is being dragged
       if (!sticker.classList.contains("dragging") && !sticker.dataset.dragStarted) {
-        // Apply parallax transform on top of any left/top positioning
-        // The transform will be applied relative to the current position
-        sticker.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        // Check if sticker is hovered and combine transforms
+        const isHovered = sticker.matches(':hover');
+        if (isHovered) {
+          // Combine parallax translation with hover scale and rotation
+          sticker.style.transform = `translate(${translateX}px, ${translateY}px) scale(1.15) rotate(5deg)`;
+        } else {
+          // Apply parallax transform on top of any left/top positioning
+          sticker.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        }
       }
     });
   }
@@ -223,6 +229,25 @@ function setupStickerDragging() {
       sticker.dataset.dragStarted = 'true'; // Disable parallax immediately
       initialPositionSet = false;
 
+      // First, remove hover effects by temporarily clearing transform to get accurate position
+      // Store the current transform to restore if needed
+      const currentTransform = sticker.style.transform;
+      
+      // Get the current parallax translation values from the transform
+      const translateMatch = currentTransform.match(/translate\(([^,]+)px,\s*([^)]+)\)/);
+      let translateX = 0;
+      let translateY = 0;
+      if (translateMatch) {
+        translateX = parseFloat(translateMatch[1]) || 0;
+        translateY = parseFloat(translateMatch[2]) || 0;
+      }
+      
+      // Temporarily set transform to just translation (no scale/rotate) to get accurate bounding rect
+      sticker.style.transform = `translate(${translateX}px, ${translateY}px)`;
+      
+      // Force a reflow to ensure the transform is applied
+      void sticker.offsetHeight;
+      
       const rect = sticker.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
       
@@ -232,7 +257,7 @@ function setupStickerDragging() {
       offsetY = e.clientY - rect.top;
       
       // Immediately freeze the current position by converting transform to left/top
-      // The bounding rect already accounts for any transforms, so use it directly
+      // The bounding rect now reflects the position without hover effects
       const currentLeft = rect.left - wrapperRect.left;
       const currentTop = rect.top - wrapperRect.top;
       

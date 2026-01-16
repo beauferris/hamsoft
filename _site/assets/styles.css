@@ -87,6 +87,11 @@ html, body {
   cursor: grabbing;
 }
 
+.sticker:hover {
+  transform: scale(1.15) rotate(5deg);
+  transition: transform 0.1s ease;
+}
+
 .sticker.dragging {
   transition: none;
   z-index: 100;
@@ -115,7 +120,7 @@ html, body {
 
 .sticker-laptop {
   /* Right side - mid height */
-  top: 400px;
+  top: 40%;
   right: 10%;
 }
 
@@ -140,13 +145,13 @@ html, body {
   /* Maintain arch pattern on mobile, adjusted for smaller screen */
   .sticker-hipo {
     bottom: -100px;
-    left: 50%;
+    left: 10%;
    
   }
 
   .sticker-bow {
     bottom: 0px;
-    left: 10%;
+    left: 30%;
   }
 
   .sticker-shopify {
@@ -5818,4 +5823,23 @@ input, textarea, select, button {
   .govuk-details.inverse[open] > .govuk-details__summary::before {
     border-top-color: #ffffff !important;
   }
+}
+
+/* Clickable Text Component */
+.clickable-text {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-text:hover {
+  opacity: 0.7;
+}
+
+.clickable-text__svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }

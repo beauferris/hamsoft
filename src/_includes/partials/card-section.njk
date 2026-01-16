@@ -9,7 +9,7 @@
 
 {% if items | length %}
   <section class="{{ sectionClass }}{% if isSlider %} card-section--slider{% endif %}">
-    <div class="{% if isSlider %}card-slider-wrapper{% else %}govuk-width-container{% endif %}">
+    <div class="{% if isSlider %}card-slider-wrapper{% else %}{% endif %}">
       {% if sectionTitle %}
         <div class="govuk-width-container">
           <h2 class="govuk-heading-l">{{ sectionTitle }}</h2>
