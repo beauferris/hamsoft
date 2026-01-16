@@ -7,6 +7,7 @@ button_title: "Start Now"
 button_link: "/contact"
 main_wrapper_class: "govuk-main-wrapper--no-top-padding"
 landing_layout: sticker
+image_url: /assets/images/rectangle.webp
 ---
 
 
@@ -21,6 +22,6 @@ landing_layout: sticker
 
 
 {% include "partials/accordion.njk" %}
-{% include "partials/review-cards.njk" %}
+{% include "partials/review-cards.njk" with { slider: false } %}
 {% include "partials/clickable-text.njk" %}
 {% include "partials/footer.njk" %}

@@ -208,12 +208,12 @@ html, body {
 }
 
 .section{
-  padding: 75px 0 75px 0;
+  padding: 115px 0 75px 0;
   width: 100%;
 }
 .grey-section {
   background-color: #f3f2f1;
-  padding: 75px 0 75px 0;
+  padding: 115px 0 75px 0;
   width: 100%;
   margin-top: 0;
 }
@@ -4726,6 +4726,67 @@ hr{
   padding: 0;
 }
 
+/* Blur Header Landing */
+.blur-header-landing {
+  position: relative;
+  padding: 0;
+}
+
+.blur-header {
+  position: relative;
+  width: 100%;
+  z-index: 4;
+  min-height: 100px;
+}
+
+.blur-header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blur-header__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1); /* Scale up to avoid blur edges */
+  margin: -10px; /* Offset for scale */
+}
+
+.blur-header__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 80%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+}
+
+.blur-header__content {
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.blur-header-landing .landing-content-overlay {
+  position: relative;
+  z-index: 3;
+  display: block;
+}
+
+.blur-header-landing .landing-content-overlay .govuk-width-container {
+  position: relative;
+  z-index: 3;
+}
+
 .landing-stacked-content {
   margin-bottom: 0;
   padding: 50px 0;
@@ -5183,6 +5244,12 @@ hr{
   margin: 0;
   padding-top: 15px;
   
+}
+
+.review-cards__action {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
 }
 
 .button-banner {

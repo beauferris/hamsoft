@@ -1,0 +1,35 @@
+<div class="landing blur-header-landing{% if text == 'inverse' %} text-inverse{% endif %}">
+  {% if image_url %}
+  <div class="landing-background">
+    <img src="{{ image_url }}" alt="{{ description }}" class="landing-bg-image"/>
+    <div class="landing-overlay"></div>
+  </div>
+  {% endif %}
+  <div class="landing-content-overlay">
+    {% if image_url %}
+    <div class="blur-header">
+      <div class="blur-header__bg">
+        <img src="{{ image_url }}" alt="{{ description }}" class="blur-header__image"/>
+        <div class="blur-header__gradient"></div>
+      </div>
+      <div class="blur-header__content">
+        {% include "partials/header.njk" %}
+      </div>
+    </div>
+    {% else %}
+      {% include "partials/header.njk" %}
+    {% endif %}
+    <div class="govuk-width-container">
+      <div class="landing-text-overlay">
+        {% include "partials/breadcrumbs.njk" %}
+        
+        <h2 class="govuk-heading-xl">{{title}}</h2>
+        <h2 class="govuk-body-lead">{{description}}</h2>
+
+        {% if button_title %}
+          <a href="{{ button_link }}" class="govuk-button govuk-button--start">{{button_title}}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
