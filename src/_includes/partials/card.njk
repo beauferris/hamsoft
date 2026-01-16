@@ -1,0 +1,59 @@
+{% set cardType = card_type | default("dfe-card") %}
+{% set itemData = item.data %}
+{% set itemUrl = item.url %}
+{% set itemTitle = itemData.title %}
+{% set itemSummary = itemData.summary %}
+{% set itemDescription = itemData.description %}
+{% set itemIconUrl = itemData.icon_url %}
+{% set itemImageUrl = itemData.image_url %}
+
+<div class="{{ cardType }}">
+  {% if cardType == "ham-card" %}
+    {# Ham-card: container first, then media #}
+    <div class="ham-card-container">
+      <h3 class="govuk-heading-m">
+        <a class="govuk-link govuk-link--no-visited-state ham-card-link--header" href="{{ itemUrl }}">
+          {{ itemTitle }}
+        </a>
+      </h3>
+      {% if itemSummary %}
+        <p class="govuk-body">{{ itemSummary }}</p>
+      {% elseif itemDescription %}
+        <p class="govuk-body">{{ itemDescription }}</p>
+      {% endif %}
+    </div>
+    {% if itemIconUrl %}
+      <div class="ham-card__media ham-card__media--icon">
+        <img src="{{ itemIconUrl }}" alt="{{ itemTitle }} icon" class="ham-card-icon">
+      </div>
+    {% elseif itemImageUrl %}
+      <div class="ham-card__media">
+        <img src="{{ itemImageUrl }}" alt="{{ itemTitle }}" class="ham-card__image">
+      </div>
+    {% endif %}
+  {% else %}
+    {# DFE-card: media first, then container #}
+    {% if itemIconUrl %}
+      <div class="dfe-card__media dfe-card__media--icon">
+        <img src="{{ itemIconUrl }}" alt="{{ itemTitle }} icon" class="service-card-icon">
+      </div>
+    {% elseif itemImageUrl %}
+      <div class="dfe-card__media">
+        <img src="{{ itemImageUrl }}" alt="{{ itemTitle }}" class="dfe-card__image">
+      </div>
+    {% endif %}
+    <div class="dfe-card-container">
+      <h3 class="govuk-heading-m">
+        <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="{{ itemUrl }}">
+          {{ itemTitle }}
+        </a>
+      </h3>
+      {% if itemSummary %}
+        <p class="govuk-body">{{ itemSummary }}</p>
+      {% elseif itemDescription %}
+        <p class="govuk-body">{{ itemDescription }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+

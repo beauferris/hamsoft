@@ -1,0 +1,64 @@
+{% set items = items | default([]) %}
+{% set cardType = card_type | default("dfe-card") %}
+{% set sectionTitle = title | default("Items") %}
+{% set sectionDescription = description | default("") %}
+{% set sectionClass = section_class | default("grey-section") %}
+{% set gridClass = grid_class | default("dfe-grid-container") %}
+{% set isSlider = slider | default(false) %}
+{% set sliderId = "card-slider-" + (items | length) + "-" + (sectionTitle | replace(" ", "-") | lower) %}
+
+{% if items | length %}
+  <section class="{{ sectionClass }}{% if isSlider %} card-section--slider{% endif %}">
+    <div class="{% if isSlider %}card-slider-wrapper{% else %}govuk-width-container{% endif %}">
+      {% if sectionTitle %}
+        <div class="govuk-width-container">
+          <h2 class="govuk-heading-l">{{ sectionTitle }}</h2>
+        </div>
+      {% endif %}
+      {% if sectionDescription %}
+        <div class="govuk-width-container">
+          <p class="govuk-body-lead" style="max-width:60rem">
+            {{ sectionDescription }}
+          </p>
+        </div>
+      {% endif %}
+      
+      {% if isSlider %}
+        <div class="card-slider" data-slider-id="{{ sliderId }}" tabindex="0">
+          <button class="card-slider__control card-slider__control--prev" aria-label="Previous card" type="button">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div class="card-slider__viewport">
+            <div class="card-slider__track">
+              {% for item in items %}
+                <div class="card-slider__slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}" aria-hidden="{% if loop.first %}false{% else %}true{% endif %}">
+                  <div class="govuk-width-container">
+                    <div class="card-slider__slide-content">
+                      {% set card_type = cardType %}
+                      {% set item = item %}
+                      {% include "partials/card.njk" %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <button class="card-slider__control card-slider__control--next" aria-label="Next card" type="button">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+      {% else %}
+        <div class="govuk-width-container">
+          <div class="{{ gridClass }}">
+            {% for item in items %}
+              {% set card_type = cardType %}
+              {% set item = item %}
+              {% include "partials/card.njk" %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+

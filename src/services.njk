@@ -10,35 +10,9 @@ image_url: /assets/images/uploads/p3.png
 ---
 
 {% set serviceItems = collections.services or [] %}
-
-<div class="govuk-width-container dfe-grid-container">
-  {% if serviceItems | length %}
-    {% for service in serviceItems %}
-      <div class="dfe-card">
-        {% if service.data.icon_url %}
-          <div class="dfe-card__media dfe-card__media--icon">
-            <img src="{{ service.data.icon_url }}" alt="{{ service.data.title }} icon" class="service-card-icon">
-          </div>
-        {% elseif service.data.image_url %}
-          <div class="dfe-card__media">
-            <img src="{{ service.data.image_url }}" alt="{{ service.data.title }}" class="dfe-card__image">
-          </div>
-        {% endif %}
-        <div class="dfe-card-container">
-          <h3 class="govuk-heading-m">
-            <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="{{ service.url }}">
-              {{ service.data.title }}
-            </a>
-          </h3>
-          {% if service.data.summary %}
-            <p class="govuk-body">{{ service.data.summary }}</p>
-          {% elseif service.data.description %}
-            <p class="govuk-body">{{ service.data.description }}</p>
-          {% endif %}
-        </div>
-      </div>
-    {% endfor %}
-  {% else %}
-    <div class="govuk-body">Service content is coming soon. Check back shortly.</div>
-  {% endif %}
-</div>
+{% set items = serviceItems %}
+{% set card_type = "dfe-card" %}
+{% set title = "Our Services" %}
+{% set section_class = "" %}
+{% set grid_class = "dfe-grid-container" %}
+{% include "partials/card-section.njk" %}

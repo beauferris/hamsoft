@@ -1,54 +1,25 @@
 ---
 layout: layout.njk
-title: Lets go digital
+title: Bow Studios
 metaTitle: "We’re here to help you go digital"
-description: We specialize in helping small businesses go digital
+description: We build websites focused on simple and straight-forward design.
 button_title: "Start Now"
 button_link: "/contact"
 main_wrapper_class: "govuk-main-wrapper--no-top-padding"
 landing_layout: sticker
 ---
 
-{% include "partials/review-cards.njk" %}
-<!--
+
+
+
 {% set serviceItems = collections.services or [] %}
-{% if serviceItems | length %}
-  <section class="grey-section">
-    <div class="govuk-width-container">
-      <h2 class="govuk-heading-l">Our Services</h2>
-      <p class="govuk-body-lead" style="max-width:60rem">
-       
-      </p>
-      <div class="dfe-grid-container">
-        {% for service in serviceItems %}
-          <div class="ham-card">
-          
-            <div class="ham-card-container">
-              <h3 class="govuk-heading-m">
-                <a class="govuk-link govuk-link--no-visited-state ham-card-link--header" href="{{ service.url }}">
-                  {{ service.data.title }}
-                </a>
-              </h3>
-              {% if service.data.summary %}
-                <p class="govuk-body">{{ service.data.summary }}</p>
-              {% elseif service.data.description %}
-                <p class="govuk-body">{{ service.data.description }}</p>
-              {% endif %}
-            </div>
-            {% if service.data.icon_url %}
-              <div class="ham-card__media ham-card__media--icon">
-                <img src="{{ service.data.icon_url }}" alt="{{ service.data.title }} icon" class="ham-card-icon">
-              </div>
-            {% elseif service.data.image_url %}
-              <div class="ham-card__media">
-                <img src="{{ service.data.image_url }}" alt="{{ service.data.title }}" class="ham-card__image">
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-{% endif %}
--->
-  
+{% set items = serviceItems %}
+{% set card_type = "ham-card" %}
+{% set title = "Our Services" %}
+{% set description = "" %}
+{% include "partials/card-section.njk" %}
+
+
+{% include "partials/accordion.njk" %}
+{% include "partials/review-cards.njk" %}
+{% include "partials/footer.njk" %}
